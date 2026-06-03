@@ -1,0 +1,18 @@
+erDiagram
+
+EMPLOYEES {
+    int id
+    string employee_name
+    string employee_email
+    int department_id
+}
+
+DEPARTMENTS {
+    int id
+    string department_name
+    string department_location
+    string department_manager_email
+}
+
+DEPARTMENTS ||--o{ EMPLOYEES : have
+

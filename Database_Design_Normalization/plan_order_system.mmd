@@ -1,0 +1,38 @@
+erDiagram
+
+CUSTOMERS {
+    int id
+    string customer_name
+    string customer_email
+}
+
+CATEGORIES {
+    int id
+    string category_name
+}
+
+PRODUCTS {
+    int id
+    int product_code
+    string product_name
+    int category_id
+}
+
+ORDERS {
+    int id
+    string order_date
+    int customer_id
+}
+
+ORDERS_LINES {
+    int id
+    int order_id
+    int product_id
+    int quantity
+    float unit_price_paid
+}
+
+CUSTOMERS ||--o{ ORDERS : places
+ORDERS ||--o{ ORDERS_LINES : contains
+CATEGORIES ||--o{ PRODUCTS : contains
+PRODUCTS ||--o{ ORDERS_LINES : contains

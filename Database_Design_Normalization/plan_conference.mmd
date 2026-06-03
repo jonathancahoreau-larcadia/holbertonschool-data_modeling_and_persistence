@@ -1,0 +1,49 @@
+erDiagram
+
+ATTENDEES {
+    int id
+    string attendee_name
+    string attendee_email
+    int company_id
+}
+
+COMPANIES {
+    int id
+    string company_name
+}
+
+SESSIONS {
+    string id
+    string session_title
+    int track_id
+    int room_id
+    int speaker_id
+}
+
+TRACKS {
+    int id
+    string track_name
+}
+
+ROOMS {
+    int id
+    string room_name
+}
+
+SPEAKERS {
+    int id
+    string speaker_name
+    string speaker_email
+}
+
+REGISTRATIONS {
+    int attendee_id
+    string session_id
+}
+
+COMPANIES ||--o{ ATTENDEES : employs
+ATTENDEES ||--o{ REGISTRATIONS : enrolls
+SESSIONS ||--o{ REGISTRATIONS : gets
+TRACKS ||--o{ SESSIONS : groups
+ROOMS ||--o{ SESSIONS : inside
+SPEAKERS ||--o{ SESSIONS : presents

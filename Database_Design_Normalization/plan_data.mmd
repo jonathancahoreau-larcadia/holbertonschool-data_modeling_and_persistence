@@ -1,0 +1,28 @@
+erDiagram
+
+STUDENTS {
+    int id
+    string name
+    string email
+}
+
+COURSES {
+    int id
+    string course_name
+    int instructor_id
+}
+
+INSTRUCTORS {
+    int id
+    string instructor_name
+    sring  instructor_email
+}
+
+ENROLLMENTS {
+    int student_id
+    int course_id
+}
+
+STUDENTS ||--o{ ENROLLMENTS : enrolls
+INSTRUCTORS ||--o{ COURSES : presents
+COURSES ||--o{ ENROLLMENTS : contains
